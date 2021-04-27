@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'top',
-	description: 'to be called by DM. Top of the round',
+	description: 'rerolls everyone\'s initiative and resets play to the top of the round',
 	help: 'top',
 	execute(msg, args, encounter) {
 		encounter.newRound()

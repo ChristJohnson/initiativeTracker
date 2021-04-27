@@ -4,7 +4,7 @@ function Character(name, initMod=0, action='') {
 	this.initiative = 0;
 	this.takenTurn = false;
 	this.roll = () => { this.initiative = randomInt(19) + Number(this.init) + 1; }
-	this.action = "";
+	this.action = action;
 	this.addAction = (initiative, actionPortion) => {
 		this.init = initiative;
 		this.action = actionPortion;

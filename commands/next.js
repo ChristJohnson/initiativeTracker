@@ -1,13 +1,14 @@
 module.exports = {
 	name: 'next',
-	description: 'to be used by the DM, cycles to the next in initiative, sending a message in the chat--will also notify if there is no initiative left',
+	description: 'to be used by the DM, cycles to the next in initiative and says their action, if they declared an action',
 	help: 'next',
 	execute(msg, args, encounter) {
-		let output = encounter.nextTurn()
+		let turn = encounter.nextTurn()
+		let c = encounter.characters[turn]
+		let output = turn === -1
+			? `\`\`\`(Bottom)\`\`\``
+			: `**Turn**:\`\`\`[${c.initiative}] ${c.name}: *${c.action}*\`\`\``;
 
-		if (output == -1)
-			msg.channel.send(`It is currently the bottom of the initiative, please call \`;top\` to reset the turn`);
-		else
-			msg.channel.send(`It is currently ${encounter.characters[output].name}'s turn`);
+		msg.channel.send(output);
 	}
 }

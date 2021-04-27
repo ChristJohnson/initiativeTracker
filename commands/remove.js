@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'remove',
-	description: 'removes label from play',
+	description: 'removes a label from play',
 	help: 'remove [label]',
 	execute(msg, args, encounter) {
 		let output = ``;

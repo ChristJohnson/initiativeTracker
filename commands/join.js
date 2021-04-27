@@ -2,7 +2,7 @@ const { getNick } = require('../nick.js');
 
 module.exports = {
 	name: 'join',
-	description: 'join the encounter',
+	description: 'for a player to join the encounter',
 	help: 'join <initiative> <action>',
 	execute(msg, args, encounter) {
 		let nickname = getNick(msg)
@@ -13,8 +13,8 @@ module.exports = {
 			}
 		}
 		encounter.addCharacter(nickname,
-			(args.length > 0) ? args[0] : 0,
-			(args.length > 1) ? args.join(' ') : "specified at time of play");
+			(args.length > 0) ? args.shift() : 0, // initiative
+			(args.length > 1) ? args.join(' ') : "specified at time of play"); // action
 		msg.channel.send(`added ${nickname} to the initiative!`);
 	}
 }

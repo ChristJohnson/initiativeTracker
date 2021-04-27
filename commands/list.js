@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'list',
-	description: 'lists people in initiative',
+	description: 'lists people in the encounter',
 	help: 'list',
 	execute(msg, args, encounter) {
 		let output = encounter.title + '\n```\n';
